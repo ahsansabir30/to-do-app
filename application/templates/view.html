@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <a href="{{url_for('new_task')}}">Add Task</a>
+    {% for task in tasks %}
+    <h4><a href="{{url_for('update_task', id=task.id)}}">{{task.name}}</a></h4>
+    {% if task.status == True %}
+    <p style="color: green;">{{task.description}} -- {{task.due_date.strftime('%Y-%m-%d')}} -- {{task.status}} -- <a href="{{url_for('delete_task', id=task.id)}}">Delete</a></p>
+    {% else %}
+    <p style="color: red;">{{task.description}} -- {{task.due_date.strftime('%Y-%m-%d')}} -- {{task.status}} -- <a href="{{url_for('delete_task', id=task.id)}}">Delete</a></p>
+    {% endif %}
+    {% endfor %}
+{% endblock body %}

@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>TO DO APP</title>
+        <style>
+            a{text-decoration: none;}
+            </style>
+    </head>
+    <body style="background-color:bisque; font-family:calibri;">
+        <h1>TO DO APP</h1>
+        <div class="content" style="margin: 10px;">
+            {% block body %}
+            {% endblock body %}
+        </div>
+        <div class="error-content">
+            {% if errors %}
+            {% for error in errors %}
+            <p style="color:red;">{{ error }}</p>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </body>
+</html>
